@@ -22,7 +22,7 @@ def generate_m3u8_stream_with_info(urls, info_list):
         tvg_id = info.get("tvg-id", "")
         tvg_name = info.get("tvg-name", "")
         tvg_logo = info.get("tvg-logo", "")
-        m3u8_content += f'{tvg_name}, \n{url}\n'
+        m3u8_content += f'{tvg_name}, {url}\n'
     with open("mgtv.txt", "w", encoding="utf-8") as file:
         file.write(m3u8_content)
         now = datetime.now()
