@@ -17,11 +17,11 @@ def generate_m3u8_stream_with_info(urls, info_list):
         file.write(m3u8_content)
 
     # 生成txt文件
-    txt_content = ''
+    txt_content = '芒果TV,#genre#\n'
     #m3u8_content = "x-tvg-url=\"https://mirror.ghproxy.com/https://raw.githubusercontent.com/mlzlzj/mgtv/main/mgtv.xml\"\n"
     for index, (url, info) in enumerate(zip(urls, info_list)):
         #tvg_id = info.get("tvg-id", "")
-        #tvg_name = info.get("tvg-name", "")
+        tvg_name = info.get("tvg-name", "")
         #tvg_logo = info.get("tvg-logo", "")
         txt_content += f'{tvg_name},{url}\n'
     with open("mgtv.txt", "w", encoding="utf-8") as file:
