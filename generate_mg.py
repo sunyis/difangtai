@@ -122,6 +122,12 @@ stream_info_list = [
         "tvg-logo": "https://cdn.jsdelivr.net/gh/mlzlzj/mgtv@main/logo/csnx.png",
         "filename": "hn15.m3u8",
     },
+    {
+        "tvg-id": "221",
+        "tvg-name": "湖南电影",
+        "tvg-logo": "https://cdn.jsdelivr.net/gh/mlzlzj/mgtv@main/logo/hndy.png",
+        "filename": "hn16.m3u8",
+    },
 ]
 def update_single_m3u8_file(url, filename):
     m3u8_dir = 'm3u8'
