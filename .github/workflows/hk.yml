@@ -1,0 +1,40 @@
+name: all
+on:
+   #push:
+     #paths:
+      #- 'gengxinip.py'
+   schedule:
+        - cron: '0 */6 * * *'
+   workflow_dispatch:
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          
+      - name: Install dependencies
+        run: pip install opencv-python requests 
+        
+      ##- name: Run all
+       ## run: python ${{ github.workspace }}/all.py
+      - name: Run mytvhk
+        run: python ${{ github.workspace }}/hk.py
+     
+      - name: Commit results
+        run: |
+          git config --local user.email "wuzhij@mail.com"
+          git config --local user.name "wzsvip"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add *.txt *.m3u
+            git commit -m "Automatic update"
+            git push
+          else
+            echo "No changes detected, skipping commit."
+          fi
