@@ -26,6 +26,8 @@ jobs:
        ## run: python ${{ github.workspace }}/all.py
       - name: Run mytvhk
         run: python ${{ github.workspace }}/hk.py
+        - name: Run getip
+        run: python ${{ github.workspace }}/spiders.py
      
       - name: Commit results
         run: |
