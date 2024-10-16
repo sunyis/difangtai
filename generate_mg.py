@@ -144,7 +144,7 @@ def update_single_m3u8_file(url, filename):
 
 def get_live_url(channel_id):
     proxy= {
-        'http': '47.94.222.78:80',
+        'http': '119.28.221.28:8088',
     }
     url = f'http://mpp.liveapi.mgtv.com/v1/epg/turnplay/getLivePlayUrlMPP?version=PCweb_1.0&platform=1&buss_id=2000001&channel_id={channel_id}'
     # print(channel_id, url)
