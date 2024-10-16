@@ -1,0 +1,44 @@
+name: gd
+
+on:
+  workflow_dispatch:
+    inputs:
+      triggle:
+        description: 'triggle'
+  schedule:
+     - cron:  '0 8,14,20,02 * * *' # 每6个小时触发一次
+  push:
+    branches:
+      - main
+
+jobs:
+  extract-url:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+        
+    - name: Run py
+      run: python ${{ github.workspace }}/generate_gd.py      
+       
+    - name: 提交更改
+      run: |
+        git config --local user.email "wuzhij@mail.com"
+        git config --local user.name "wzsvip"
+        #git reset --hard origin/main
+        git add .
+        git commit -m "Add generated file"
+        #git commit *.txt -m "Add generated file"
+        #git commit *.m3u -m "Add generated file"
+        #git pull --rebase
+        git push -f
