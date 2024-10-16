@@ -30,8 +30,6 @@ jobs:
         
     - name: Run py
       run: python ${{ github.workspace }}/generate_mg.py      
-    - name: Run gd
-      run: python ${{ github.workspace }}/generate_gd.py         
        
     - name: 提交更改
       run: |
