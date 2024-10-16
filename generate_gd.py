@@ -176,7 +176,7 @@ def get_live_url(channel_id):
     proxy= {
         'http': '221.231.13.198:1080',
     }
-    url = f'https://m.gdtv.cn/tvChannelDetail/{channel_id}'
+    url = f'https://www.gdtv.cn/tvChannelDetail/{channel_id}'
     # print(channel_id, url)
     response = requests.get(url, proxies=proxy)
     data = response.json()
