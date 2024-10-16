@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: pip install opencv-python requests 
         
-      ##- name: Run all
-       ## run: python ${{ github.workspace }}/all.py
+      - name: Run isip
+        run: python ${{ github.workspace }}/spiders.py
       - name: Run mytvhk
         run: python ${{ github.workspace }}/hk.py
      
