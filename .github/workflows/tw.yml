@@ -6,7 +6,7 @@ on:
       triggle:
         description: 'triggle'
   schedule:
-     - cron:  '0 02,04,06,08,10,12,14,16,18,20,22 * * *' # 每2个小时触发一次
+    # - cron:  '0 02,04,06,08,10,12,14,16,18,20,22 * * *' # 每2个小时触发一次
   push:
     branches:
       - main
